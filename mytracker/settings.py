@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "tracker.apps.TrackerConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -74,8 +75,12 @@ WSGI_APPLICATION = "mytracker.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "expense_tracker_db",
+        "USER": "expense_tracker",
+        "PASSWORD": "DB_PASSWORD_PLACEHOLDER",
+        "HOST": "localhost",
+        "PORT": "5432"
     }
 }
 
