@@ -65,8 +65,9 @@ def delete_expense(request, pk):
     Deletes a specific transaction identified by it's primary key (pk).
     """
     transaction = get_object_or_404(Transactions, pk=pk)
-    if request.method == "Post":
+    if request.method == "POST":
         transaction.delete()
+        return redirect("tracker:expense_list")
     return redirect("tracker:expense_list")
 
 
